@@ -72,31 +72,32 @@ public class USACO{
         //read the file
         Scanner in = new Scanner(text);
 
+        int rows,cols,seconds;
         int[][] directions = {{1,0},{0,1},{-1,0},{0,-1}}; // 4 orthogonal directions
-        int rows,cols,seconds,startX,startY,endX,endY; //parameters of problem
+        int [] locations = new int[4]; //parameters of problem
 
-        rows = s.nextInt();
-        cols = s.nextInt();
-        seconds = s.nextInt(); // load problem in parameters
+        rows = in.nextInt();
+        cols = in.nextInt();
+        seconds = in.nextInt(); // load problem in parameters
 
-        map = new int[rows][cols]; //create map
+        int[][] board = new int[rows][cols]; //create map
         for (int r = 0;r < rows ;r++ ) {
-            String next = s.next();
+            String next = in.next();
                 for (int c = 0;c < cols ;c++ ) {
                     if(next.charAt(c) == '*'){
-                        map[r][c] = -1;
+                        board[r][c] = -1;
                     }
                 }
             }
 
-        startX = s.nextInt() -1; /
-        startY = s.nextInt()-1 ;
-        endX = s.nextInt() -1 ;
-        endY = s.nextInt()-1;
+        locations[0] = in.nextInt() -1;
+        locations[1] = in.nextInt()-1 ;
+        locations[2] = in.nextInt() -1 ;
+        locations[3] = in.nextInt()-1;
 
-        return solveSilver(board, E, instructions);
+        return solveSilver(locations, board);
     }
-    public static int solveSilver(int[][] board, int E, int[][] instructions){
+    public static int solveSilver(int[] locations, int[][] board){
         for (int[] i : instructions){
             int max = 0;
             for(int xcor = i[0] - 1; xcor < i[0] + 2; xcor++){
