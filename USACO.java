@@ -3,7 +3,7 @@ import java.util.*;
 public class USACO{
     public static void main(String[] args) throws FileNotFoundException{
         System.out.println(bronze("makelake.1.in"));
-        System.out.println(silver("ctravel.1.in"));
+        System.out.println(silver("ctravel.2.in"));
     }
     public static int bronze(String filename) throws FileNotFoundException{
         File text = new File(filename);
